@@ -8,17 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var tasks:Array<Task> = []
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        HeaderView(tasks: $tasks)
+        List(tasks, id: \.self){ tasks in
+            Text("\(tasks.nameOfTask)")
+            }
+           
     }
-}
-
-#Preview {
-    ContentView()
 }
